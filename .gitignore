@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.wrangler/
+.npm-cache/
+.npmrc
+.DS_Store
+
+_backup_before_scroll_demo_*/
+qa-*.png
+*.log
