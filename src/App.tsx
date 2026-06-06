@@ -24,7 +24,7 @@ function LogoMark({ className = "inline-flex h-12 w-12" }: { className?: string 
       aria-label="CARDZ.Game"
       role="img"
     >
-      <img className="h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.28)]" src="/cardz-game-logo.png" alt="" />
+      <img className="h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.28)]" src={`${import.meta.env.BASE_URL}cardz-game-logo.png`} alt="" />
     </span>
   );
 }
@@ -34,7 +34,7 @@ function YaichiLogo({ className = "h-8 w-32" }: { className?: string }) {
     <span className={`${className} inline-flex shrink-0 items-center justify-center`} aria-label="YAICHI" role="img">
       <img
         className="h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.24)]"
-        src="/yaichi-logo.png"
+        src={`${import.meta.env.BASE_URL}yaichi-logo.png`}
         alt=""
       />
     </span>
@@ -57,7 +57,10 @@ function WhatsAppLogo({ className = "h-6 w-6" }: { className?: string }) {
 }
 
 function normalizePath(pathname: string) {
-  return pathname.replace(/\/+$/, "") || "/";
+  // 去掉 Vite base 前缀(如 /yaichi),让 /yaichi/go/whatsapp 仍匹配 /go/whatsapp
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const stripped = base && pathname.startsWith(base) ? pathname.slice(base.length) : pathname;
+  return stripped.replace(/\/+$/, "") || "/";
 }
 
 function getRedirectTarget(pathname: string) {
@@ -293,14 +296,14 @@ function SecondSection({
           <div className="mt-6 flex w-full flex-col gap-3 md:flex-row md:justify-center">
             <a
               className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#240505] px-6 text-sm font-extrabold text-[#fff5e8]"
-              href="/go/whatsapp"
+              href={`${import.meta.env.BASE_URL}go/whatsapp`}
             >
               <MessageCircle className="h-5 w-5" strokeWidth={2.1} aria-hidden="true" />
               加入 WhatsApp {siteConfig.group.currentNumber} 號群
             </a>
             <a
               className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full border border-[#240505]/35 px-6 text-sm font-bold text-[#240505]"
-              href="/go/telegram"
+              href={`${import.meta.env.BASE_URL}go/telegram`}
             >
               <Send className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
               Telegram 備用
@@ -363,7 +366,7 @@ export default function App() {
         </div>
         <a
           className="flex min-h-[68px] items-center justify-center gap-3 rounded-full bg-[#20d466] px-4 text-black shadow-[0_14px_40px_rgba(0,0,0,0.32)]"
-          href="/go/whatsapp"
+          href={`${import.meta.env.BASE_URL}go/whatsapp`}
         >
           <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white text-[#16c85a] shadow-[0_8px_20px_rgba(0,0,0,0.18)]">
             <WhatsAppLogo className="h-6 w-6" />

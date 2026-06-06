@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    image: yaichi-cardz-community
+    container_name: yaichi-cardz-community
+    ports:
+      - "8123:80"
+    restart: unless-stopped
