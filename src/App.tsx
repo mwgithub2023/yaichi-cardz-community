@@ -11,11 +11,11 @@ import {
 import { getApproxMemberCount, siteConfig } from "./site.config";
 
 const HERO_VIDEO =
-  "https://res.cloudinary.com/daklr2whx/video/upload/v1778592404/baby-track-video_e968wn.mp4";
+  "https://d2wfywg01u4nuu.cloudfront.net/sp/2026-06-06/17807552459255218.mp4?versionId=LfR29DUmDSsBhsVhfdyymd8Xh8f4mYnK";
 const CLOUD_IMAGE =
   "https://res.cloudinary.com/daklr2whx/image/upload/v1778597725/cloude_ws7l3z.png";
 const SECOND_VIDEO =
-  "https://res.cloudinary.com/daklr2whx/video/upload/v1778602552/track-video_2_s9lp53.mp4";
+  "https://d2wfywg01u4nuu.cloudfront.net/sp/2026-06-06/17807552459753918.mp4?versionId=SENgsF0epvZTiQ.bVP_NJN57UKQwFLgO";
 
 function LogoMark({ className = "inline-flex h-12 w-12" }: { className?: string }) {
   return (
