@@ -6,3 +6,12 @@ services:
     ports:
       - "8123:80"
     restart: unless-stopped
+
+  # 一次性构建服务:把容器内 build 出来的 dist 写回宿主机 ./dist
+  builder:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: sh -c "npm ci && npm run build"
