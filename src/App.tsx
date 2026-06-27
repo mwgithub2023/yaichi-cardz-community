@@ -29,14 +29,14 @@ function LogoMark({ className = "inline-flex h-12 w-12" }: { className?: string 
   );
 }
 
-function YaichiLogo({ className = "h-8 w-32" }: { className?: string }) {
+function YaichiPartnerLogo({ className = "h-12 w-[284px]" }: { className?: string }) {
   return (
-    <span className={`${className} inline-flex shrink-0 items-center justify-center`} aria-label="YAICHI" role="img">
-      <img
-        className="h-full w-full object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.24)]"
-        src={`${import.meta.env.BASE_URL}yaichi-logo.png`}
-        alt=""
-      />
+    <span
+      className={`${className} inline-flex shrink-0 items-center justify-center overflow-hidden rounded-full border border-black/10 bg-white px-4 py-2 shadow-[0_16px_40px_rgba(80,0,0,0.18)]`}
+      aria-label="YAICHI 谷日百貨"
+      role="img"
+    >
+      <img className="h-full w-full object-contain" src={`${import.meta.env.BASE_URL}yaichi-tani-logo.png`} alt="" />
     </span>
   );
 }
@@ -124,10 +124,8 @@ function RedirectScreen({
 
 function BrandLockup() {
   return (
-    <div className="pointer-events-auto inline-flex max-w-[calc(100vw-40px)] items-center gap-3 rounded-full border border-white/12 bg-black/18 px-3 py-2 shadow-[0_18px_46px_rgba(0,0,0,0.22)] backdrop-blur-md md:gap-4 md:px-4 md:py-3">
+    <div className="pointer-events-auto inline-flex max-w-[calc(100vw-40px)] items-center rounded-full border border-white/18 bg-[#f5ead8]/30 px-4 py-3 shadow-[0_18px_46px_rgba(0,0,0,0.22)] backdrop-blur-md md:px-5 md:py-4">
       <LogoMark className="inline-flex h-[42px] w-[74px] md:h-16 md:w-[112px]" />
-      <span className="h-8 w-px bg-white/24 md:h-10" aria-hidden="true" />
-      <YaichiLogo className="h-[26px] w-[104px] md:h-10 md:w-40" />
     </div>
   );
 }
@@ -243,6 +241,12 @@ function SecondSection({
       <div className="flex flex-1 flex-col items-center pt-[112px] pb-[132px] md:pt-[400px] md:pb-24">
         <div className="relative z-20 mx-auto flex h-auto w-full max-w-[900px] flex-col items-center px-6 text-center md:px-8">
           <LogoMark className="inline-flex h-20 w-[140px]" />
+          <div className="mt-4 flex items-center gap-3">
+            <span className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#260505]/70">
+              with
+            </span>
+            <YaichiPartnerLogo className="h-12 w-[284px] md:h-14 md:w-[390px]" />
+          </div>
 
           <p className="mx-auto mt-8 mb-[28px] max-w-[440px] text-[15px] font-semibold leading-[1.72] tracking-[0.04em] text-[#260505] md:text-[16px]">
             所有社群資料集中在這裡：WhatsApp 主群、Telegram 備用、CARDZ.Game 透明開包科技、AI 百科全書、新會員優惠。
